@@ -12,14 +12,14 @@ import os
 def CreateConfigFile ():
     config = open("config.txt","w")
     config.write("This is the config file for the DocumentCreator-Programm\n")
-    config.write("DO NOT CHANGE THIS FILE! ONLY THE  PROGRAMM SHOULD CHANGE THIS FILE!\n")
+    config.write("DO NOT CHANGE THIS FILE! ONLY THE  PROGRAMM SHOULD \n CHANGE THIS FILE!\n")
     config.close()
 
 
 #Reads from the config
 def ReadConfigFile():
     config = open("config.txt","r")
-    config.readline(3)
+    config.readline(4)
     #add more used lines
     config.close()
 
@@ -41,7 +41,7 @@ def AddConfigToFile(lang,User,PrintDirekt,Watermark,Database):
 #Connect to database or create database
 def ConnectToDatabase ()
     config.open("config.txt","r")
-    db = config.readline(7)
+    db = config.readline(8)
     IF db = "" THEN
         global connection = sqlite3.connect(db)
         CreateDbTable()
@@ -88,7 +88,7 @@ def GetItem (number)
 
 #write tempdoc file
 def CreateTempDocument()
-    tempdoc = open ("doc.txt","w")
+    tempdoc = open ("doc.txt","x")
     tempdoc.close()
 
 #write into tempdoc file
@@ -99,4 +99,5 @@ def WriteTempDocument(Key)
 
 #Remove tempdoc file
 def DeleteTempDocument()
-    os.remove("doc.txt")
+    if os.path.exists("doc.txt"):
+        os.remove("doc.txt")

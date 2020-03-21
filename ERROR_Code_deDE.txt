@@ -1,0 +1,5 @@
+Errorcode de_DE
+
+SP:
+
+0001 : Die Spracheinrichtung wurde nicht richtig geladen oder ist falsch eingerichtet

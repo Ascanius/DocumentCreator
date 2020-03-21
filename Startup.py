@@ -22,6 +22,6 @@ ELSE
 
 startup = tk()
 
-startup.title(language.readline(1))
+startup.title(language.readline(2))
 
 startup.mainloop()

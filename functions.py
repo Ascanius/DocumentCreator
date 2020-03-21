@@ -5,6 +5,7 @@
 #Imports used libraries
 
 import sqlite3
+import os
 
 
 #Creates the config file or rewrite the config file header
@@ -84,3 +85,18 @@ def GetItem (number)
     cursor.execute("Selet * FROM item where (no = number)")
     item = cursor.fetchone()
     return item
+
+#write tempdoc file
+def CreateTempDocument()
+    tempdoc = open ("doc.txt","w")
+    tempdoc.close()
+
+#write into tempdoc file
+def WriteTempDocument(Key)
+    tempdoc = open("doc.txt","a")
+    tempdoc.write(Key)
+    tempdoc.close()
+
+#Remove tempdoc file
+def DeleteTempDocument()
+    os.remove("doc.txt")

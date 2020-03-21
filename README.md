@@ -1,6 +1,6 @@
 # DocumentCreator
-## Version:  00.01.0000 - Alpha
 
+## Version:  00.01.0000 - Alpha
 
 
 **Deutsch:**

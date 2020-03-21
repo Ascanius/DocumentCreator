@@ -1,0 +1,5 @@
+Errorcode en_EN
+
+SP:
+
+0001 : The language setting could not be loaded or don't habe a correct setup

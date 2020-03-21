@@ -7,3 +7,9 @@ import functions.py
 import tkinter
 
 #Startup sequence
+
+
+startup = tk()
+
+
+startup.mainloop()

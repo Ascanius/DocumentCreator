@@ -4,3 +4,7 @@
 #import used libraries
 import functions.py
 import tkinter
+
+root = tk()
+
+root.mainloop()

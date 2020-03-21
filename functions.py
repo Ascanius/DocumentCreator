@@ -38,6 +38,33 @@ def AddConfigToFile(lang,User,PrintDirekt,Watermark,Database):
     config.close()
 
 def ConnectToDatabase ()
-    db = ""
+    config.open("config.txt","r")
     db = config.readline(7)
-    connection = sqlite3.connect(db)
+    IF db = "" THEN
+        global connection = sqlite3.connect(db)
+        CreateDbTable()
+    ELSE
+        EXIT
+
+def CreateDbTable()
+    cursor = connection.cursor()
+    sql_command = """
+        CREATE TABLE item (
+        no Code PRIMARY KEY,
+        name VARCHAR (100),
+        price DECIMAL,
+        vat DECIMAL);"""
+    cursor.execute(sql_command)
+    sql_command = """
+        CREATE TABLE customer (
+        fname VARCHAR (50),
+        lname VARCHAR (50),
+        gender VARCHAR (2),
+        address VARCHAR (50)
+        city VARCHAR (50),
+        plz VARCHAR (25),
+        phone VARCHAR (20),
+        mail VARCHAR (50));"""
+    cursor.execute(sql_command)
+
+    connection.commit()

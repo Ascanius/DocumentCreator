@@ -6,6 +6,9 @@
 
 import sqlite3
 import os
+import subprocess
+import pylatex
+import pylatex.utils
 
 
 #Creates the config file or rewrite the config file header
@@ -24,18 +27,20 @@ def ReadConfigFile():
     config.close()
 
 #Add Settings to config file
-def AddConfigToFile(lang,User,PrintDirekt,Watermark,Database):
+def AddConfigToFile(lang,User,PrintDirekt,Watermark,Database,Logo):
     lang1  = lang
     User1 = User
     PrintDirekt1 = PrintDirekt
     Watermark1 = Watermark
     Database1 = Database
+    logo1 = logo
     config = open("config.txt","a")
     config.write(lang1)
     config.write(User1)
     config.write(PrintDirekt1)
     config.write(Watermark1)
     config.write(Database1)
+    config.write(logo1)
     config.close()
 
 #Connect to database or create database
@@ -101,3 +106,15 @@ def WriteTempDocument(Key)
 def DeleteTempDocument()
     if os.path.exists("doc.txt"):
         os.remove("doc.txt")
+#Create Report
+def CreateReport()
+    geometry_options = {
+    "head" : "40pt",
+    "margin": "0.39in",
+    "bottom" : "0.59in",
+    "includeheadfoot" : true
+    }
+    doc = Document(geometry_options=geometry_options)
+    first_page = PageStyle("firstpage")
+
+    #show logo

@@ -33,4 +33,6 @@ startup = tk()
 
 startup.title(language.readline(2))
 
+
+
 startup.mainloop()

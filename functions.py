@@ -71,13 +71,14 @@ def CreateDbTable()
     connection.commit()
     connection.close()
 
+#Get the current Customer
 def GetCustomer (name)
     cursor = connection.cursor()
     cursor.execute("Select * FROM customer where (lname = name)")
     cust = cursor.fetchone()
     return cust
 
-
+#Get the Items
 def GetItem (number)
     cursor = connection.cursor()
     cursor.execute("Selet * FROM item where (no = number)")

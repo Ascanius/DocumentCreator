@@ -9,7 +9,7 @@ import os
 import subprocess
 import pylatex
 import pylatex.utils
-
+import pdflatex
 
 #Creates the config file or rewrite the config file header
 def CreateConfigFile ():

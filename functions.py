@@ -37,6 +37,7 @@ def AddConfigToFile(lang,User,PrintDirekt,Watermark,Database):
     config.write(Database1)
     config.close()
 
+#Connect to database or create database
 def ConnectToDatabase ()
     config.open("config.txt","r")
     db = config.readline(7)
@@ -46,6 +47,7 @@ def ConnectToDatabase ()
     ELSE
         EXIT
 
+#Create Tables in the database
 def CreateDbTable()
     cursor = connection.cursor()
     sql_command = """
@@ -60,11 +62,24 @@ def CreateDbTable()
         fname VARCHAR (50),
         lname VARCHAR (50),
         gender VARCHAR (2),
-        address VARCHAR (50)
+        address VARCHAR (50),
         city VARCHAR (50),
         plz VARCHAR (25),
         phone VARCHAR (20),
         mail VARCHAR (50));"""
     cursor.execute(sql_command)
-
     connection.commit()
+    connection.close()
+
+def GetCustomer (name)
+    cursor = connection.cursor()
+    cursor.execute("Select * FROM customer where (lname = name)")
+    cust = cursor.fetchone()
+    return cust
+
+
+def GetItem (number)
+    cursor = connection.cursor()
+    cursor.execute("Selet * FROM item where (no = number)")
+    item = cursor.fetchone()
+    return item

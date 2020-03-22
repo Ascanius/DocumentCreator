@@ -58,10 +58,11 @@ def CreateDbTable()
     cursor = connection.cursor()
     sql_command = """
         CREATE TABLE item (
-        no Code PRIMARY KEY,
+        no VARCHAR PRIMARY KEY,
         name VARCHAR (100),
-        price DECIMAL,
-        vat DECIMAL);"""
+        Unit VARCHAR (50),
+        price VARCHAT,
+        vat VARCHAR);"""
     cursor.execute(sql_command)
     sql_command = """
         CREATE TABLE customer (
@@ -74,13 +75,21 @@ def CreateDbTable()
         phone VARCHAR (20),
         mail VARCHAR (50));"""
     cursor.execute(sql_command)
+    sql_command = """
+        CREATE TABLE company (
+        name VARCHAR (100),
+        iban VARCHAR (100),
+        bic VARCHAR (50),
+        bank VARCHAR (100),
+        regno VARCHAR (100)
+        );"""
     connection.commit()
     connection.close()
 
 #Get the current Customer
-def GetCustomer (name)
+def GetCustomer (1name,2name)
     cursor = connection.cursor()
-    cursor.execute("Select * FROM customer where (lname = name)")
+    cursor.execute("Select * FROM customer where ((lname = 2name) AND (fname = 1name)) ")
     cust = cursor.fetchone()
     return cust
 

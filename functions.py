@@ -7,9 +7,7 @@
 import sqlite3
 import os
 import subprocess
-import pylatex
-import pylatex.utils
-import pdflatex
+
 
 #Creates the config file or rewrite the config file header
 def CreateConfigFile ():
@@ -106,7 +104,7 @@ def GetCompany ():
     cursor.execute("Select * FROM company")
     company = cursor.fetchone()
     return company
-    
+
 #write tempdoc file
 def CreateTempDocument():
     tempdoc = open ("doc.txt","x")

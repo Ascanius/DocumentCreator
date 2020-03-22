@@ -120,15 +120,3 @@ def WriteTempDocument(Key):
 def DeleteTempDocument():
     if os.path.exists("doc.txt"):
         os.remove("doc.txt")
-#Create Report
-def CreateReport():
-    geometry_options = {
-    "head" : "40pt",
-    "margin": "0.39in",
-    "bottom" : "0.59in",
-    "includeheadfoot" : true
-    }
-    doc = Document(geometry_options=geometry_options)
-    first_page = PageStyle("firstpage")
-
-    #show logo

@@ -19,10 +19,13 @@ prestartup = tk()
 prestartup.title("")
 file = open ("config.txt","r")
 lang = file.readline(4)
+langarray  = ""
 IF lang = 0 THEN:
     language = open ("DEU.txt","r")
+    langarray = language.readline()
 ELIF lang = 1 THEN:
     language = open ("ENU.txt","r")
+    langarray = language.readline()
 ELSE:
     messagebox.showerror("Error","CODE SP 0001")
 prestartup.mainloop()
@@ -31,7 +34,7 @@ prestartup.mainloop()
 
 startup = tk()
 
-startup.title(language.readline(2))
+startup.title(langarray[2])
 
 
 

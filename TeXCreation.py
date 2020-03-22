@@ -20,3 +20,21 @@ def CreateReport():
     first_page = PageStyle("firstpage")
 
     #show logo
+
+    with forst_page.create(Head("L")) as header_right:
+        with header_right.create(MiniPage(width=NoEscape(r"0.49\textwidth"),pos="c")) as logo_wrapper:
+            logo_file = os.path.join(os.path.dirname(__file__), "logo.png")
+            logo_wrapper.append(StandAloineGraphic(image_options="width=120px",Filename=logo_file))
+
+    #Add footer
+
+    with first_page.create(Foot("C")) as footer:
+
+    doc.preamble.append(first_page)
+
+
+    #Add Custoemr Information
+    with doc.create(Tabu("X[l]" "X[r]")) as first_page_table:
+        customer = MiniPage(width=NoEscape(r"0.49\textwidth"),pos="h")
+        customer.append("")
+        customer.append("\n")

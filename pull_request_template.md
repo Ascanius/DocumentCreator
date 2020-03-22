@@ -7,7 +7,7 @@ Always provide enough information for others.
 Explain the details for making this change! What existing problems are solved!
 
 **Code formatting**
-All RP without a proper code formatting wil be rejected! Please follow the Python Style Guide!
+All PR without a proper code formatting wil be rejected! Please follow the Python Style Guide!
 
 
 **Test plan (required)**

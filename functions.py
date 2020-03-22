@@ -54,7 +54,7 @@ def ConnectToDatabase ()
         EXIT
 
 #Create Tables in the database
-def CreateDbTable()
+def CreateDbTable():
     cursor = connection.cursor()
     sql_command = """
         CREATE TABLE item (
@@ -87,36 +87,43 @@ def CreateDbTable()
     connection.close()
 
 #Get the current Customer
-def GetCustomer (1name,2name)
+def GetCustomer (1name,2name):
     cursor = connection.cursor()
     cursor.execute("Select * FROM customer where ((lname = 2name) AND (fname = 1name)) ")
     cust = cursor.fetchone()
     return cust
 
 #Get the Items
-def GetItem (number)
+def GetItem (number):
     cursor = connection.cursor()
     cursor.execute("Selet * FROM item where (no = number)")
     item = cursor.fetchone()
     return item
 
+#Get company
+def GetCompany ():
+    cursor = connection.cursor()
+    cursor.execute("Select * FROM company")
+    company = cursor.fetchone()
+    return company
+    
 #write tempdoc file
-def CreateTempDocument()
+def CreateTempDocument():
     tempdoc = open ("doc.txt","x")
     tempdoc.close()
 
 #write into tempdoc file
-def WriteTempDocument(Key)
+def WriteTempDocument(Key):
     tempdoc = open("doc.txt","a")
     tempdoc.write(Key)
     tempdoc.close()
 
 #Remove tempdoc file
-def DeleteTempDocument()
+def DeleteTempDocument():
     if os.path.exists("doc.txt"):
         os.remove("doc.txt")
 #Create Report
-def CreateReport()
+def CreateReport():
     geometry_options = {
     "head" : "40pt",
     "margin": "0.39in",
